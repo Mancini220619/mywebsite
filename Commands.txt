@@ -1,0 +1,125 @@
+git help
+
+git --version
+
+git config --global user.name "Juliano Mancini"
+
+git config --global user.email "julianomancini@gmail.com"
+
+git config --global init.default branch main
+
+git init
+
+git status
+
+#commit é um snapshot/tracked dos arquivos
+
+git add index.html  
+#ao fazer isso esta em stage, ou seja, pronto pra fazer o commit
+
+
+git rm --cached index.html 
+#remove o arquivo do stage
+
+git add .
+
+git commit -m "Primeiro commit - Todos os arquivos"
+#primeiro snapshot
+
+git status
+
+#alterado index.html
+
+git diff
+
+#working | stage | commit
+index
+
+git log
+#visualiza alterações
+
+git log --oneline
+
+#sair do working e pular stage
+git commit -a -m "Alterei a data para 1880"
+
+git commit -a -m "Alterado v3 yaml"
+
+#remover imagem hamburguer
+git rm hamburger.jpg 
+#removido no diretorio tablesetting.jpg
+
+git restore hamburger.jpg
+git restore tablesetting.jpg
+
+#mudar nome do arquivo 
+git mv hamburger.jpg hamburger2.jpg
+
+#desfazer
+git mv hamburger2.jpg hamburger.jpg
+
+#alterar ultima mensagem de commit
+git commit -m "Alterei da data de fundação para 1880" --amend
+
+#log detalhado em uma lista
+git log -p
+
+#git reset, tres tipos 'soft' 'mixed' 'hard'
+
+#alterado index + git add . + commit
+
+git reset --hard d38f3a7
+
+#alias é um atalho, no caso ele cria o alias log1 que executa o comando "log --oneline" ou seja, git log1
+
+git config --global alias.log1 "log --oneline"
+git log1
+
+#branch uma filial, uma imagem
+
+git branch
+
+git log1
+
+#ninguem edita a main branch
+
+#adionando branch (ideal uma branch por feature ou projeto) quando finalizar remover
+git branch
+git branch AddMenu
+
+git switch AddMenu
+
+#incluido menu sales
+
+git merge -m "Merge da branch addmenu para a branch main" AddMenu
+
+#removendo branch
+git branch -d AddMenu
+
+git remote add origin <repositorio remoto>
+git branch -M main
+git push -u origin main
+
+#push de outras branchs
+
+git switch -c AddItem
+#cria e já vai para nova branch criada
+
+git branch
+git add .
+git commit -m "Adicionado o item fritata ao menu"
+git branch
+git switch main
+
+git branch
+git merge -m "Merge da branch AddItem a branch main - adicionando item ao menu" AddItem
+git status
+git add .
+git commit -m "Novo item adicionado ao menu"
+git push --all
+
+#pull request
+
+git switch main
+git pull
+
